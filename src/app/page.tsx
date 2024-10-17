@@ -1,4 +1,5 @@
 import styles from './page.module.scss';
+import Link from 'next/link';
 
 export default function Index() {
   /*
@@ -35,7 +36,9 @@ export default function Index() {
                 </svg>
                 <span>You&apos;re up and running</span>
               </h2>
-              <a href="/products"> View waxstat Box </a>
+              <Link href="/products">
+                <p> View waxstat Box </p>
+              </Link>
             </div>
             <div className="logo-container">
               <svg

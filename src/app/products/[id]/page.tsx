@@ -1,32 +1,37 @@
-// pages/products/[id].js
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-// Sample product data (In real scenarios, fetch this from an API or database)
-const products = [
-  { id: 1, name: 'Product One', description: 'Detailed description of Product One.' },
-  { id: 2, name: 'Product Two', description: 'Detailed description of Product Two.' },
-  { id: 3, name: 'Product Three', description: 'Detailed description of Product Three.' },
+type Product = {
+  id: number;
+  name: string;
+  slug: string;
+  description: string;
+};
+
+const products: Product[] = [
+  { id: 1, name: 'Sản Phẩm Một', slug: 'san-pham-mot', description: 'Mô tả chi tiết sản phẩm một.' },
+  { id: 2, name: 'Sản Phẩm Hai', slug: 'san-pham-hai', description: 'Mô tả chi tiết sản phẩm hai.' },
+  { id: 3, name: 'Sản Phẩm Ba', slug: 'san-pham-ba', description: 'Mô tả chi tiết sản phẩm ba.' },
 ];
 
-export default function ProductDetail() {
-  const router = useRouter();
-  const { id } = router.query;
+async function getProductBySlug(slug: string): Promise<Product | undefined> {
+  return products.find((product) => product.id.toString() === slug);
+}
 
-  // Find the product based on the id
-  const product = products.find((p) => p.id === parseInt(id));
 
-  // If the page is not yet generated, show a loading state
+export default async function ProductDetail({ params }: { params: { id: string } }) {
+
+  const product = await getProductBySlug(params.id);
+
   if (!product) {
-    return <div>Loading...</div>;
+    return <div>Sản phẩm không tồn tại.</div>;
   }
 
   return (
-    <div>
+    <div >
       <h1>{product.name}</h1>
       <p>{product.description}</p>
-      <Link href="/pages/products">
-        <a >Back to Products</a>
+      <Link href="/products">
+        <p >Back to Products screen</p>
       </Link>
     </div>
   );

@@ -17,13 +17,13 @@ export default function Products() {
             <h2>{product.name}</h2>
             <p>{product.description}</p>
             <Link href={`/products/${product.id}`}>
-              <a >View Details</a>
+              <p >View Details</p>
             </Link>
           </li>
         ))}
       </ul>
-      <Link href="/public">
-        <a >Back to Home</a>
+      <Link href="/">
+        <p >Back to Home</p>
       </Link>
     </div>
   );
