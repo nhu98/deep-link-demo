@@ -1,26 +1,19 @@
 {
   "applinks": {
-       "details": [
-                  {
-                    "appID": "com.imt.waxstat",
-                    "components": [
-                      {
-                         "#": "no_universal_links",
-                         "comment": "Matches any URL with a fragment that equals no_universal_links and instructs the system not to open it as a universal link."
-                      },
-                      {
-                         "/": "/*",
-                         "comment": "Matches any URL with a path that starts with /*."
-                      },
-                      {
-                         "/": "/products/*",
-                         "comment": "Matches any URL with a path that starts with /products/ and instructs the system not to open it as a universal link."
-                      }
-                    ]
-                  }
-              ]
-   },
-   "webcredentials": {
-      "apps": [ "com.imt.waxstat" ]
+      "details": [
+           {
+             "appIDs": [ "com.imt.waxstat" ],
+             "components": [
+               {
+                  "/": "/*",
+                  "comment": "Matches any URL with a path that starts with /buy/."
+               },
+               {
+                  "/": "/products/*",
+                  "comment": "Matches any URL with a path that starts with /products/ and instructs the system not to open it as a universal link."
+               }
+             ]
+           }
+       ]
    }
 }
