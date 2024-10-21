@@ -5,12 +5,8 @@
              "appIDs": [ "CH3EWM6K7J.com.imt.waxstat" ],
              "components": [
                {
-                  "/": "/*",
-                  "comment": "Matches any URL with a path that starts with /buy/."
-               },
-               {
                   "/": "/products/*",
-                  "comment": "Matches any URL with a path that starts with /products/ and instructs the system not to open it as a universal link."
+                  "comment": "Matches any URL with a path that starts with /products/* and instructs the system not to open it as a universal link."
                }
              ]
            }
